@@ -1,4 +1,5 @@
 ## [subcode]
+import atoms
 class molecule:
     def __init__(self,bonds,elements,stable = True):
         self.bonds = bonds
@@ -26,16 +27,16 @@ class bond:
             global bond
             bond(a,b,num-1)
 class atom:
-    def __init__(self,modes,mode,electrons,bonds,joinable = True):
+    def __init__(self,bonds,name,abbr,joinable = True):
         self.bond = False
         self.bondneed = bonds
-        self.modes  = modes
-        self.mode = mode
         self.joinable = joinable
         self.bonds = bonds
+        self.name = name
+        self.abbr = abbr
 class nojoinatom(atom):
-    def __init__(self,modes,mode,electrons,bonds):
-        super.__init__(modes,mode,electrons,bonds,joinable = False)
+    def __init__(self,bonds,name,abbr):
+        super.__init__(bonds,name,abbr,joinable = False)
 
 
 def join(elements,unstable = False):
